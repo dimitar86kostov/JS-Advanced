@@ -1,23 +1,19 @@
-function prevDay(year, month, day) {
+function prevDay(year, month, date) {
 
-    let d = new Date(`${year}-${month}-${day}`);
+    let d = new Date(year, month - 1, date);
 
-    if (day == 1) {
+    d.setDate(d.getDate() - 1)
 
-        if (month == 0 || month == 2 || month == 4 || month == 6 || month == 7 || month == 9 || month == 11) {
-            day = 31
-            
-        } else if (month == 1) {
-            day = 29
-        } else if (month == 3 || month == 5 || month == 8 || month == 10) {
-            day = 30
-        }
+    let yy = d.getFullYear();
+    let mm = d.getMonth() + 1;
+    let dd = d.getDate();
 
-    } else {
-        day = day - 1
-    }
+    let out = `${yy}-${mm}-${dd}`
+   
 
-    console.log(`${year}-${month}-${day}`);
+    
+    console.log(out);
+    
 
 }
 // prevDay(2016, 9, 30);
